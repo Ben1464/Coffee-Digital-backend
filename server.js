@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors(
   {
-  origin:"coffee-digital.vercel.app "
+  origin:"http://coffee-digital.vercel.app "
   }
 ));
 
