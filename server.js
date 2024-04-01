@@ -22,13 +22,13 @@ app.post('/send-email', async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'felix254.info@gmail.com',
-      pass: 'oiyvvzxolhhytxfz' // Add your actual Gmail password here
+      user: 'armonkimani@gmail.com',
+      pass: 'zpgycpcfxkqqthiu' // Add your actual Gmail password here
     }
   });
 
   let mailOptions = {
-    from: 'felix254.info@gmail.com',
+    from: 'armonkimani@gmail.com',
     to: 'kimaniben14@gmail.com',
     subject: 'New Message from Contact Form',
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}` // Fixed the template literal
