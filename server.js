@@ -6,11 +6,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(cors(
-  {
-  origin:"https://coffee-digital.vercel.app "
-  }
-));
+app.use(cors({
+  origin: "https://coffee-digital.vercel.app"
+}));
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://coffee-digital.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -18,9 +17,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/',(req, res)=>{
-  res.send({ message: 'server is online' });
-})
+app.get('/', (req, res) => {
+  res.send({ message: 'Server is online' });
+});
 
 app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body;
@@ -48,6 +47,15 @@ app.post('/send-email', async (req, res) => {
     console.error('Error sending email:', error);
     res.status(500).send({ message: 'Error sending email' });
   }
+});
+
+// Handle search query parameter
+app.get('/search', (req, res) => {
+  const searchQuery = req.query.search;
+  // Here you can handle the search query as per your application logic
+  console.log('Search query:', searchQuery);
+  // For now, just sending a simple response
+  res.send({ message: 'Search query received', query: searchQuery });
 });
 
 app.listen(PORT, () => {
